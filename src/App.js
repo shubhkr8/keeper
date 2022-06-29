@@ -5,6 +5,14 @@ import { Notes } from "./MyComponents/Notes";
 import { AddNote } from "./MyComponents/AddNote";
 
 function App() {
+  const getLocalItems = () => {
+    let list = localStorage.getItem("lists");
+    if (list) {
+      return JSON.parse(localStorage.getItem("lists"));
+    } else {
+      return [];
+    }
+  };
   const deleteNote = (sno) => {
     setNotes(
       notes.filter((e) => {
@@ -26,7 +34,10 @@ function App() {
     };
     setNotes([...notes, myNote]);
   };
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(getLocalItems());
+  useEffect(() => {
+    localStorage.setItem("lists", JSON.stringify(notes));
+  }, [notes]);
 
   return (
     <div>
