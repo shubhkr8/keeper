@@ -48,8 +48,8 @@ function App() {
         crossorigin="anonymous"
       ></script>
       <ins
-        class="adsbygoogle"
-        style="display:block"
+        className="adsbygoogle"
+        style={{ display: block }}
         data-ad-client="ca-pub-8865400856097497"
         data-ad-slot="3948134976"
         data-ad-format="auto"
